@@ -39,6 +39,7 @@ class SSLify(object):
         criteria = [
             request.is_secure,
             self.app.debug,
+            self.app.config["TESTING"],
             request.headers.get('X-Forwarded-Proto', 'http') == 'https'
         ]
 
